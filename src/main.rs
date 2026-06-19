@@ -1,28 +1,37 @@
-use axum::{routing::get, Router};
+use axum::{extract::Query, routing::get, Json, Router};
+use serde_json::{json, Value};
+use std::collections::HashMap;
 
-// Handler for the "/" route. Returns a simple welcome message.
-async fn home() -> &'static str {
-    "Here is your Rust backend"
+// Returns some data as JSON.
+async fn home() -> Json<Value> {
+    Json(json!({
+        "name": "rust-backend-intro",
+        "message": "Hello from Rust! 🦀",
+        "version": "0.1",}))
 }
 
-// Handler for the "/health" route. Used to check if the server is up.
-async fn health() -> &'static str {
-    "OK"
+// Returns some data as JSON.
+async fn data() -> Json<Value> {
+    Json(json!({ "text": "Hello from Rust", "count": 3 }))
 }
 
-// Entry point. The macro lets main run as an async function on the Tokio runtime.
+// Reads "name" from the query string, e.g. /greet?name=Katia
+async fn greet(Query(params): Query<HashMap<String, String>>) -> Json<Value> {
+    // Use the name if given, otherwise "stranger".
+    let name = params.get("name").map(|s| s.as_str()).unwrap_or("stranger");
+    Json(json!({ "hello": name }))
+}
+
 #[tokio::main]
 async fn main() {
-    // Build the app and connect each URL path to its handler function.
     let app = Router::new()
         .route("/", get(home))
-        .route("/health", get(health));
+        .route("/data", get(data))
+        .route("/greet", get(greet));
 
-    // Listen for incoming connections on localhost, port 3000.
     let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
         .await
         .unwrap();
 
-    // Start the server and keep it running.
     axum::serve(listener, app).await.unwrap();
 }
