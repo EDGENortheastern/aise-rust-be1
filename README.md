@@ -1,12 +1,12 @@
-# aise-rust-be1
+# 🦀 Rust World Cup API
 
 A small Rust backend built with [axum](https://github.com/tokio-rs/axum). It serves a few JSON endpoints, including 2026 FIFA World Cup data read from [data/world_cup.json](data/world_cup.json).
 
 ## Live demo
 
-Deployed on Render: **https://aise-rust-be1.onrender.com**
+Deployed on Render: **<https://aise-rust-be1.onrender.com>**
 
-World Cup endpoint: **https://aise-rust-be1.onrender.com/world-cup**
+World Cup endpoint: **<https://aise-rust-be1.onrender.com/world-cup>**
 
 ## Endpoints
 
