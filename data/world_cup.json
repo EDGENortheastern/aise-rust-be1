@@ -1,0 +1,20 @@
+{
+  "tournament": "2026 FIFA World Cup",
+  "hosts": ["United States", "Mexico", "Canada"],
+  "teams": 48,
+  "countries": [
+    { "name": "United States", "code": "USA", "confederation": "CONCACAF" },
+    { "name": "Mexico", "code": "MEX", "confederation": "CONCACAF" },
+    { "name": "Canada", "code": "CAN", "confederation": "CONCACAF" },
+    { "name": "Argentina", "code": "ARG", "confederation": "CONMEBOL" },
+    { "name": "Brazil", "code": "BRA", "confederation": "CONMEBOL" },
+    { "name": "Japan", "code": "JPN", "confederation": "AFC" },
+    { "name": "Iran", "code": "IRN", "confederation": "AFC" },
+    { "name": "New Zealand", "code": "NZL", "confederation": "OFC" },
+    { "name": "Australia", "code": "AUS", "confederation": "AFC" },
+    { "name": "England", "code": "ENG", "confederation": "UEFA" },
+    { "name": "France", "code": "FRA", "confederation": "UEFA" },
+    { "name": "Spain", "code": "ESP", "confederation": "UEFA" },
+    { "name": "Morocco", "code": "MAR", "confederation": "CAF" }
+  ]
+}
